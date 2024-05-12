@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Mamá</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <div id="sobre" onclick="abrirCarta()">
+            <div class="frente">
+                <div class="rectangulo"></div>
+                <div class="destinatarios">
+                    <p class="destinatario">De: Sergio</p>
+                    <p class="destinatario">Para: Elvira</p>
+                </div>
+            </div>
+            <div class="detras">
+                <div class="triangulo"></div>
+                <div class="espacio"></div>
+                <div class="corazon">
+                    <p id="mensaje">¡Feliz Día de la Madre!</p>
+                </div>
+                <p id="mensaje-abajo">Haz click en el sobre</p>
+            </div>
+        </div>
+    </div>
+    <div id="carta" onclick="cerrarCarta()">
+        <div id="pagina1">
+            <img id="imagen1" src="img1.jpg" alt="Imagen">
+        </div>
+        <div id="pagina2">
+            <p id="titulo">Querida Mamá,</p>
+            <p>En este Día de las Madres, quiero expresarte mi más profundo agradecimiento por todo lo que has hecho por mí. Sin ti, no estaría donde estoy hoy. Tu amor incondicional, tu apoyo constante y tu sacrificio desinteresado son un verdadero tesoro en mi vida.</p>
+            <p>Gracias por ser mi guía, mi inspiración y mi mayor apoyo en todo momento. Agradezco cada sacrificio que has hecho por mí y por mis hermanos. Tu amor y dedicación son incomparables, y estoy eternamente agradecido por todo lo que has dado por nosotros.</p>
+            <p>Quiero que sepas que siempre estaré aquí para ti, al igual que tú siempre has estado para mí. Eres mi felicidad, mi héroe y mi mayor inspiración. Te quiero más de lo que las palabras pueden expresar, y estoy infinitamente agradecido por tenerte como mi madre.</p>
+            <p id="mensaje-destacado">¡Feliz Día de la Madre!</p>        
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <button id="boton-musica" onclick="reproducirMusica()">Presiona Para una Sorpresa :D</button>
+    <audio id="audio" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>

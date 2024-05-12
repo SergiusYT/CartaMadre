@@ -1,0 +1,382 @@
+body {
+    /* Establecer un color de fondo inicial */
+    background-color: #d364d3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Aplicar una transición suave para el cambio de color de fondo */
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Definir las animaciones para cambiar el color de fondo */
+@keyframes cambioColorFondo {
+    0% {
+        background-color: #d364d3; /* Color inicial */
+    }
+    25% {
+        background-color: #69b6ea; /* Primer color de transición */
+    }
+    50% {
+        background-color: #63d396; /* Segundo color de transición */
+    }
+    75% {
+        background-color: #8863d3; /* Tercer color de transición */
+    }
+    100% {
+        background-color: #d364d3; /* Color final, igual al inicial */
+    }
+}
+
+/* Aplicar la animación al fondo de la página */
+body {
+    animation: cambioColorFondo 20s infinite alternate; /* Cambiar el color de fondo en un bucle */
+}
+
+
+
+#container {
+    position: relative;
+}
+
+#sobre {
+    display: none; /* Ocultar el sobre inicialmente */
+    width: 300px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s;
+    z-index: 2;
+}
+
+#sobre .frente {
+    width: 100%;
+    height: 100%;
+    background-color: #cda632;
+    border: 8px solid #d8fc75;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Sombras alrededor del sobre */
+}
+
+#sobre .detras {
+    width: 100%;
+    height: 100%;
+    background-color: #cda632;
+    border: 8px solid #d8fc75;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Sombras alrededor del sobre */
+}
+
+/* Agregar transición para el volteo del sobre */
+#sobre .frente, #sobre .detras {
+    transition: transform 0.5s;
+}
+
+#sobre:hover .frente {
+    transform: rotateY(180deg);
+}
+
+#sobre:hover .detras {
+    transform: rotateY(0deg);
+}
+
+
+
+.triangulo {
+    position: absolute;
+    top: -80px; /* Posición ajustada para que esté exactamente arriba del rectángulo */
+    left: 0; /* Ajustar la posición del triángulo */
+    width: 97%; /* Ancho igual al del rectángulo */
+    height: 80px; /* Altura mucho más alta */
+    background-color: #c69912;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%); /* Forma de triángulo invertido */
+    z-index: 3;
+}
+
+.espacio {
+    position: absolute;
+    bottom: 151px; /* Posición ajustada para que esté exactamente debajo del rectángulo */
+    left: 0; /* Ajustar la posición del triángulo */
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent; /* Ajustar el ancho del triángulo */
+    border-right: 150px solid transparent; /* Ajustar el ancho del triángulo */
+    border-top: 50px solid #a47f0e; /* Ajustar el color del triángulo y su altura */
+    z-index: 1; /* Z-index menor que el del rectángulo */
+
+}
+
+.corazon {
+    width: 180px;
+    height: 180px;
+    background: url("corazon.png") no-repeat center center/contain;
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    animation: flotar 1s infinite alternate; /* Animación de flotación */
+}
+
+@keyframes flotar {
+    from {
+        transform: translate(-50%, -50%) translateY(15); /* Posición inicial */
+    }
+    to {
+        transform: translate(-50%, -50%) translateY(-20px); /* Posición final */
+    }
+}
+
+#mensaje {
+    font-family: 'Garamond', serif; /* Cambiar la tipografía */
+    font-size: 20px; /* Cambiar el tamaño del texto */
+    color: #fffeff;
+    text-align: center; /* Centrar el texto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#mensaje-abajo {
+    font-family: 'Garamond', serif; /* Cambiar la tipografía */
+    font-size: 30px; /* Cambiar el tamaño del texto */
+    color: #ffffff;
+    text-align: center; /* Centrar el texto */
+    position: absolute;
+    top: 120%; /* Posición debajo del sobre */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Asegurar que esté por encima de otros elementos */
+    animation: flotar 1s infinite alternate, aparecer-desaparecer 2s infinite; /* Animación de flotación y de aparecer-desaparecer */
+}
+
+@keyframes flotar2 {
+    from {
+        transform: translateY(0); /* Posición inicial */
+    }
+    to {
+        transform: translateY(-15px); /* Posición final */
+    }
+}
+
+@keyframes aparecer-desaparecer {
+    0%, 100% {
+        opacity: 0; /* Invisible al inicio y al final */
+    }
+    50% {
+        opacity: 1; /* Visible en la mitad de la animación */
+    }
+}
+
+
+.destinatarios {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.destinatario {
+    font-family: 'Garamond', serif; /* Cambiar la tipografía */
+    font-size: 30px; /* Cambiar el tamaño del texto */
+    color: #fffeff;
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 20px; /* Espacio entre destinatarios */
+}
+
+
+
+
+
+
+#carta {
+    display: none;
+    position: fixed;
+    top: 42%;
+    left: 52%;
+    transform: translate(-50%, -50%) rotate(7deg);
+    width: 80vw; /* Ancho relativo al ancho de la ventana */
+    height: 80vh; /* Alto relativo al alto de la ventana */
+    transform-origin: top left;
+    z-index: 999;
+    transform-style: preserve-3d;
+    perspective: 2000px;
+}
+
+@media (min-width: 901px) {
+    /* Estilos para pantallas más grandes (tabletas y escritorios) */
+    #carta {
+        width: 60vw;
+        height: 60vh;
+    }
+}
+
+@media only screen and (max-width: 901px) {
+    /* Estilos específicos para dispositivos móviles */
+    #carta {
+        left: 60%; /* Ajusta la posición horizontal */
+        top: 50%;
+    }
+}
+
+
+
+
+
+#carta.active {
+    display: block;
+}
+
+#pagina1, #pagina2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la parte trasera */
+}
+
+#pagina1 {
+    transform: rotateY(15deg); /* Inclina la primera página */
+    background-color: #f0a6ca; /* Color de la primera página */
+    z-index: 2; /* Z-index superior para mostrar encima de la segunda página */
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.9), /* Sombra principal */
+        0 0 50px rgba(0, 0, 0, 0.2) inset, /* Sombra interna */
+        0 0 10px rgba(255, 255, 255, 0.1) inset; /* Resalte */
+}
+
+#pagina1 img {
+    width: 35%; /* Ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    position: absolute; /* Posición absoluta para controlar su ubicación */
+    top: 50%; /* Coloca la imagen en la mitad vertical del contenedor */
+    left: 25%; /* Coloca la imagen en la mitad horizontal del contenedor */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    border: 8px solid #d8fc75; /* Añade un borde alrededor de la imagen */
+    border-radius: 20px; /* Agrega bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Agrega una sombra a la imagen */
+    transition: opacity 0.5s ease-in-out; /* Transición de opacidad durante 0.5 segundos */
+}
+
+
+#pagina2 {
+    position: absolute;
+    top: 0;
+    left: 75%; /* Centra la página 2 horizontalmente */
+    transform: translateX(-50%) rotateY(4deg); /* Inclina y centra la página 2 */
+    width: 52%; /* Asigna el 50% del ancho para que esté a la par de la página 1 */
+    height: 100%; /* Mantén la altura al 100% */
+    background-color: #f9eceb; /* Color de la segunda página */
+    z-index: 0; /* Z-index inferior para que esté detrás de la primera página */
+    overflow: hidden; /* Oculta el exceso de la segunda página */
+    box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.7), /* Sombra principal */
+    0 0 50px rgba(0, 0, 0, 0.3) inset, /* Sombra interna */
+    0 0 10px rgba(255, 255, 255, 0.1) inset; /* Resalte */
+
+    padding: 0 20px; /* Añadir relleno a los lados para separar el texto del borde */
+    text-align: justify; /* Justificar el texto para que se vea más ordenado */
+    line-height: 1.35; /* Espaciado entre líneas para mejorar la legibilidad */
+}
+
+
+#titulo {
+    font-family: 'Garamond', serif; /* Cambiar la tipografía */
+    font-size: 36px; /* Tamaño del título */
+    font-weight: bold; /* Negrita para destacar */
+    color: #3e3e3e; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 10px; /* Espacio después del título */
+}
+
+#mensaje-destacado {
+    font-family: 'Garamond', serif; /* Cambiar la tipografía */
+    font-size: 24px; /* Tamaño del mensaje destacado */
+    color: #f9006f; /* Color destacado */
+    text-align: center; /* Centrar el texto */
+    margin-top: 20px; /* Espacio antes del mensaje destacado */
+}
+
+/* Ajustar la posición del título en dispositivos móviles */
+@media only screen and (max-width: 1000px) {
+    #pagina2 {
+        font-size: 14px; /* Reducir el tamaño de fuente */
+    }
+}
+
+/* Ajustar la posición del título en dispositivos móviles */
+@media only screen and (max-width: 1100px) {
+    #titulo {
+        font-size: 22px; /* Reducir el tamaño de fuente */
+        margin-bottom: 15px; /* Aumentar el espacio después del título */
+    }
+}
+
+/* Ajustar la posición del mensaje destacado en dispositivos móviles */
+@media only screen and (max-width: 1100px) {
+    #mensaje-destacado {
+        font-size: 18px; /* Reducir el tamaño de fuente */
+        margin-top: 15px; /* Aumentar el espacio antes del mensaje destacado */
+    }
+}
+
+/* Ajustar la posición del título en dispositivos móviles */
+@media only screen and (max-width: 390px) {
+    #pagina2 {
+        font-size: 12px; /* Reducir el tamaño de fuente */
+    }
+}
+
+/* Ajustar la posición del título en dispositivos móviles */
+@media only screen and (max-width: 400px) {
+    #titulo {
+        font-size: 20px; /* Reducir el tamaño de fuente */
+        margin-bottom: 15px; /* Aumentar el espacio después del título */
+    }
+}
+
+/* Ajustar la posición del mensaje destacado en dispositivos móviles */
+@media only screen and (max-width: 400px) {
+    #mensaje-destacado {
+        font-size: 16px; /* Reducir el tamaño de fuente */
+        margin-top: 15px; /* Aumentar el espacio antes del mensaje destacado */
+    }
+}
+
+#boton-musica {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: #ff3366;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#boton-musica:hover {
+    background-color: #ff1a4d;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+#boton-musica:active {
+    background-color: #cc0044;
+}
