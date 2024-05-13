@@ -332,7 +332,7 @@ body {
 }
 
 /* Ajustar la posición del título en dispositivos móviles */
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 400px) {
     #pagina2 {
         font-size: 12px; /* Reducir el tamaño de fuente */
     }
