@@ -309,14 +309,14 @@ body {
 }
 
 /* Ajustar la posición del título en dispositivos móviles */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1300px) {
     #pagina2 {
         font-size: 14px; /* Reducir el tamaño de fuente */
     }
 }
 
 /* Ajustar la posición del título en dispositivos móviles */
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1300px) {
     #titulo {
         font-size: 22px; /* Reducir el tamaño de fuente */
         margin-bottom: 15px; /* Aumentar el espacio después del título */
@@ -324,7 +324,7 @@ body {
 }
 
 /* Ajustar la posición del mensaje destacado en dispositivos móviles */
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1300px) {
     #mensaje-destacado {
         font-size: 18px; /* Reducir el tamaño de fuente */
         margin-top: 15px; /* Aumentar el espacio antes del mensaje destacado */
